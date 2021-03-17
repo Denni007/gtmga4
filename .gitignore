@@ -1,4 +1,6 @@
 node_modules/
 template/
 ga4/node_modules
+backend/config
+backend/.env
 .env

@@ -1,0 +1,4 @@
+node_modules/
+template/
+ga4/node_modules
+.env

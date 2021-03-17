@@ -25,9 +25,8 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-app.post('/api/googlesignin', (req,res)=>{
-  console.log(req.body);
-});
+app.use('/api',userRouter);
+
 
 
 app.listen(8000,()=>{console.log("server started http://localhost:8000")});

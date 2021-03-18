@@ -21,15 +21,31 @@ mongoose.connect(mongodbUrl,{ useNewUrlParser: true, useUnifiedTopology: true })
 
 const app = express();
 
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 app.get('/', (req, res) => {
   res.send('Hello World!')
-})
-app.use('/api',userRouter);
+});
+// app.use( (req, res,next) => {
+//  console.log(req.body);
+//  next();
+// });
 
+app.use('/api', userRouter);
 
+// app.post('/api/googlesignin', async (req, res) => {
+//   //  const token = await client.verifyIdToken({
+//   //     idToken: token,
+//   //     audience: "707899012207-c99nu2ve4r2nv408jgufp7427e6k17bk.apps.googleusercontent.com"
+//   // });
+//     console.log(req.body);
+  
+//     res.send({
+//       hello: "hello"
+//     });
+//   });
 
-app.listen(8000,()=>{console.log("server started http://localhost:8000")});
+app.listen(5000,()=>{console.log("server started http://localhost:5000")});
 
 process.on('SIGTERM', () => {
     server.close(() => {
